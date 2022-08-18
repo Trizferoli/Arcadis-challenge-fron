@@ -14,11 +14,6 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 
-function formatedDate(date) {
-    const jsData = new Date(date);
-    return format(jsData, 'dd/MM/yyyy');
-}
-
 
 function CustomTable() {
     const [tableData, setTableData] = useState([]);

@@ -20,16 +20,30 @@ function formatedDate(date) {
 }
 
 
-function CustomTable({ toggle }) {
+function CustomTable({ toggle, selectedPoint, selectedParameter }) {
     const [tableData, setTableData] = useState([]);
+    const [allTableData, setAllTableData] = useState([]);
     const [irregulars, setIrregulars] = useState([]);
     const [current, setCurrent] = useState([]);
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
     async function getPoints() {
         try {
             const response = await api.get('/parametros');
             setTableData(response.data);
+            setAllTableData(response.data);
             console.log(response.data)
+        }
+        catch (error) {
+            console.log(error.response.data.message)
+        }
+    }
+
+    async function getPoints() {
+        try {
+            const response = await api.get('/parametros');
+            setTableData(response.data);
         }
         catch (error) {
             console.log(error.response.data.message)
@@ -52,16 +66,13 @@ function CustomTable({ toggle }) {
     }
 
 
+
     useEffect(() => {
         getPoints()
         getIrregulars()
     }, []);
 
 
-    // useEffect(() => { toggle ? setCurrent(irregulars) : setCurrent(tableData)});
-
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -112,8 +123,8 @@ function CustomTable({ toggle }) {
                     </TableHead>
                     <TableBody>
                         {tableData.map((row) => {
-                            let isIrregular = irregulars.includes(row.valor_parametro)
-                            console.log(row.id, irregulars)
+                            let isIrregular = irregulars.includes(row.valor_parametro);
+
                             return (
                                 <TableRow hover role="checkbox" tabIndex={-1} >
                                     <TableCell

@@ -52,3 +52,22 @@ using npm:
 ```sh
     npm start
 ```
+
+
+```bash
+└───arcadis     # package files
+    ├───public      # base html and page icon
+    └───src     # application index base file, its css, routes file and global css file
+        ├───assets      # images used on the project
+        ├───components
+        │   ├───Form    # parameter form and point form components and its css file
+        │   ├───Header  # header component and its css file
+        │   ├───Sidebar #sidebar and its css file
+        │   └───Table   # parameter table and points table components
+        ├───page
+        │   ├───AddParameter # add parameter page component
+        │   ├───AddPoint    # add point page component
+        │   └───Dashboard   # parameter and points dashbboard page component and its css file
+        └───service     # connection to the api service 
+
+```

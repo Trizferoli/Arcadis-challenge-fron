@@ -52,7 +52,8 @@ using npm:
 ```sh
     npm start
 ```
-
+---
+## Files structure:
 
 ```bash
 └───arcadis     # package files

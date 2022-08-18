@@ -3,6 +3,7 @@
 MVP of a project for registering and consulting geographic points and its parameters. Made for a selection project.
 Api can be accessed here: https://github.com/Trizferoli/Arcadis-challenge-API
 
+![image of the project](./arcadis//src/assets/Opera%20Instant%C3%A2neo_2022-08-18_130542_localhost.png)
 ## Technologies
 
 - Javascript:
